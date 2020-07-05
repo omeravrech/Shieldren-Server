@@ -4,13 +4,13 @@ import { join } from 'path';
 import HttpException from '../utils/exceptions/httpexception';
 
 export namespace DefaultController {
-    export function indexPage(req: Request, res:Response, next:NextFunction) {
+    export const getIndexPage = (req: Request, res:Response, next:NextFunction) => {
         res.render("index.html");
     };
-    export function  favIcon(req: Request, res:Response, next:NextFunction) {
+    export const  getFavIcon = (req: Request, res:Response, next:NextFunction) => {
         res.sendFile(join(__dirname, "..", "..", "views", "favicon.ico"));
     };
-    export function  Error404Page(req: Request, res:Response, next:NextFunction) {
+    export const Error404Page = (req: Request, res:Response, next:NextFunction) => {
         next(new HttpExceptions.PageNotFound());
     };
 }

@@ -4,7 +4,8 @@ const appRoutes: Array<NestedRoute | SingleRoute> = [
     {
         path: "/",
         routes: [
-            { method: "get", path:"/" , handler: DefaultController.indexPage },
+            { method: "get", path:"/" , handler: DefaultController.getIndexPage },
+            { method: "get", path: "/favicon.ico", handler: DefaultController.getFavIcon }
         ]
     },
     { method: "all", path: "*", handler: DefaultController.Error404Page }
