@@ -1,0 +1,54 @@
+{
+    "name": "shieldren-server",
+    "version": "1.0.1",
+    "description": "Server side for College project",
+    "main": "./dist/server.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/omeravrech/Shieldren-Server.git"
+    },
+    "author": "Omer Avrech",
+    "license": "ISC",
+    "scripts": {
+        "start": "npm run serve",
+        "build": "npm run build-ts",
+        "serve": "node dist/server.js",
+        "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
+        "watch-node": "nodemon --watch dist ./dist/server.js",
+        "build-ts": "tsc",
+        "watch-ts": "tsc -w"
+    },
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "compression": "^1.7.4",
+        "dotenv": "^8.2.0",
+        "ejs": "^2.7.1",
+        "express": "^4.17.1",
+        "express-flash": "0.0.2",
+        "jsonwebtoken": "^8.5.1",
+        "lusca": "^1.6.1",
+        "mongoose": "^5.8.12",
+        "passport": "^0.4.1",
+        "winston": "^3.2.1"
+    },
+    "devDependencies": {
+        "@types/body-parser": "^1.17.1",
+        "@types/compression": "^1.7.0",
+        "@types/concurrently": "^4.1.0",
+        "@types/express": "^4.17.1",
+        "@types/express-flash": "0.0.2",
+        "@types/lusca": "^1.6.2",
+        "@types/node": "^12.7.8",
+        "@types/passport": "^1.0.3",
+        "@types/request": "^2.48.3",
+        "@types/request-promise": "^4.1.44",
+        "concurrently": "^5.0.0",
+        "nodemon": "^1.19.2",
+        "ts-node": "^8.4.1",
+        "typescript": "^3.6.3"
+    },
+    "bugs": {
+        "url": "https://github.com/omeravrech/Shieldren-Server/issues"
+    },
+    "homepage": "https://github.com/omeravrech/Shieldren-Server#readme"
+}
