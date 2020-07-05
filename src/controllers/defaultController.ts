@@ -1,15 +1,16 @@
 import { Request, Response, NextFunction } from 'express';
-
+import { HttpExceptions } from '../utils';
 import { join } from 'path';
+import HttpException from '../utils/exceptions/httpexception';
 
-export default class DefaultController {
-    static indexPage(req: Request, res:Response, next:NextFunction) {
+export namespace DefaultController {
+    export function indexPage(req: Request, res:Response, next:NextFunction) {
         res.render("index.html");
     };
-    static favIcon(req: Request, res:Response, next:NextFunction) {
+    export function  favIcon(req: Request, res:Response, next:NextFunction) {
         res.sendFile(join(__dirname, "..", "..", "views", "favicon.ico"));
     };
-    static Error404Page(req: Request, res:Response, next:NextFunction) {
-        res.status(404).send();
+    export function  Error404Page(req: Request, res:Response, next:NextFunction) {
+        next(new HttpExceptions.PageNotFound());
     };
 }

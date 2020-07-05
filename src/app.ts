@@ -6,7 +6,9 @@ import passport     from "passport";
 import flash        from "express-flash";
 import lusca        from "lusca";
 import routes       from './router';
-import { logger }       from "./utils";
+import {
+    logger,
+    ErrorHandler }  from "./utils";
 
 
 const app = express();
@@ -29,7 +31,7 @@ app.use((req, res, next) => {
     logger.info(`client ${req.connection.remoteAddress} request ${req.method} HTTP${req.httpVersion} ${req.url}`)
     next();
 })
-app.use("/", routes)
-//app.use(ErrorHandler);
+app.use("/", routes);
+app.use(ErrorHandler);
 
 export default app;

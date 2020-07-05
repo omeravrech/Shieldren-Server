@@ -1,4 +1,4 @@
-import DefaultController from './defaultController';
+import { DefaultController } from './defaultController';
 
 export {
     DefaultController
