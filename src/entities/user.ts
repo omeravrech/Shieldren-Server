@@ -1,19 +1,20 @@
-import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeORM';
-import { Child } from "./child";
-import { Person } from "./person";
+import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import Child from "./child";
+import Person from "./person";
 
 @Entity()
 export default class User extends Person {
 
     @Column({ unique: true })
-    email: string;
+    email!: string;
     
     @Column({ length: 20 })
-    salt: string;
+    salt!: string;
     
     @Column({ length: 128 })
-    password: string;
+    password!: string;
 
     @OneToMany(type => Child, child => child.oid)
-    children: Child[];
+    children!: Child[];
+
 }

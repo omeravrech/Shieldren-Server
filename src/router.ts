@@ -10,8 +10,10 @@ const addToRouter = (router: Router, element: SingleRoute) : void => {
         case "POST": 
             router.post(element.path, element.handler);
             break;
-        default:
+        case "ALL":
             router.all(element.path, element.handler);
+            break;
+        default:
             break;
     }
 }

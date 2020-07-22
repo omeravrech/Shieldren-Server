@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { HttpExceptions } from '../utils';
 import { join } from 'path';
-import HttpException from '../utils/exceptions/httpexception';
 
 export namespace DefaultController {
     export const getIndexPage = (req: Request, res:Response, next:NextFunction) => {

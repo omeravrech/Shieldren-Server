@@ -1,5 +1,5 @@
 {
-    "compilerOptions": {
+   "compilerOptions": {
       /* Visit https://aka.ms/tsconfig.json to read more about this file */
   
       /* Basic Options */
@@ -72,6 +72,6 @@
          "forceConsistentCasingInFileNames": true,  /* Disallow inconsistently-cased references to the same file. */
          "pretty": true                             /* Creat readable output files */
     },
-    "include": ["./src/**/*"],
-    "exclude": [ "node_modules" ]
+   "include": ["./src/**/*"],
+   "exclude": [ "node_modules" ]
 }

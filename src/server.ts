@@ -53,8 +53,10 @@ class ServerBuilder {
     StartServer(): Server { return new Server(this); }
 }
 
-new ServerBuilder().StartServer();
+const server:Server = new ServerBuilder().StartServer();
 
 
 process.on("uncaughtException", (err) => { console.log({ data: "uncaughtException", error: err.stack }); });
 process.on("SIGTERM", () => { process.exit(0); });
+
+export default server;

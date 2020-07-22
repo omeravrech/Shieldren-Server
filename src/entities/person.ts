@@ -1,19 +1,16 @@
-import { BaseEntity, Column, PrimaryGeneratedColumn } from 'typeORM';
+import { BaseEntity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-export class Person extends BaseEntity {
+export default class Person extends BaseEntity {
     @PrimaryGeneratedColumn("uuid")
-    oid: string;
+    oid!: string;
 
     @Column()
-    firstName: string;
+    firstName!: string;
 
     @Column()
-    lastName: string;
+    lastName!: string;
 
     @Column("timestamp", { default: () => "CURRENT_TIMESTAMP" })
-    createdAt: string;
+    createdAt!: string;
 
-    constructor() {
-        super();
-    };
 }

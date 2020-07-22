@@ -1,24 +1,30 @@
-import                   "reflect-metadata";
-import express      from 'express';
+import                  "reflect-metadata";
+import express      from "express";
+import flash        from "express-flash";
+import session  from "express-session";
 import compression  from "compression";
 import bodyParser   from "body-parser";
 import path         from "path";
-import flash        from "express-flash";
 import lusca        from "lusca";
-
 import routes       from './router';
-import {
-    logger,
-    ErrorHandler }  from "./utils";
-
+import { logger,
+    ErrorHandler,
+    Database }     from "./utils";
 
 const app = express();
 
-app.set("port", process.env.PORT || 3000);
+
+app.set("port", process.env.PORT || 5000);
 app.set("views", path.join(__dirname, "../views"));
+app.set("db", Database());
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({
+    secret: 'test',
+    resave: true,
+    saveUninitialized: true,
+}));
 app.use(flash());
 app.use(lusca.xframe("SAMEORIGIN"));
 app.use(lusca.xssProtection(true));
