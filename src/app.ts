@@ -1,18 +1,20 @@
+// Imported modules
 import                  "reflect-metadata";
 import express      from "express";
 import flash        from "express-flash";
-import session  from "express-session";
+import session      from "express-session";
 import compression  from "compression";
 import bodyParser   from "body-parser";
 import path         from "path";
 import lusca        from "lusca";
+
+// Projects modules
 import routes       from './router';
 import { logger,
-    ErrorHandler,
-    Database }     from "./utils";
+    ErrorHandler }  from "./utils";
+import Database     from './database';
 
 const app = express();
-
 
 app.set("port", process.env.PORT || 5000);
 app.set("views", path.join(__dirname, "../views"));
