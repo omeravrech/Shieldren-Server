@@ -12,13 +12,13 @@ import lusca        from "lusca";
 import routes       from './router';
 import { logger,
     ErrorHandler }  from "./utils";
-import Database     from './database';
+import DataBaseHandler from "./database";
 
 const app = express();
 
 app.set("port", process.env.PORT || 5000);
 app.set("views", path.join(__dirname, "../views"));
-app.set("db", Database());
+app.set("db",DataBaseHandler);
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

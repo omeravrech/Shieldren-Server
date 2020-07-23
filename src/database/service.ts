@@ -4,9 +4,9 @@ import { createConnection,
 import { logger, config } from "../utils";
 import * as Entities      from "./entities";
 
-var _instance:Connection | undefined;
+var _instance:Connection;
 
-function start () {
+function createInstance() {
     var { databaseConfiguration } = config;
     const _connectionProps:ConnectionOptions = {
         type: "mongodb",
@@ -36,9 +36,9 @@ function start () {
     })
 }
 
-const DataBaseHandler = async (): Promise<Connection | undefined> => {
+const DataBaseHandler = (): Connection => {
     if (!_instance) { 
-        await start();
+        createInstance();
         return _instance;
     }
     else {
