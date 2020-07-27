@@ -7,10 +7,14 @@ pipeline {
         }
         stages {
                 stage('Install node modules'){
-                        sh "npm install"
+                        steps {
+                                sh "npm install"
+                        }
                 }
                 stage('Build'){
-                        sh "npm run build"
+                        steps {
+                                sh "npm run build"
+                        }
                 }
         }
 }
